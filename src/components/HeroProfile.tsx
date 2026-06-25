@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Code2, Bot } from "lucide-react";
-import avatarWithDeco from "@/assets/singleboy-avatar.gif.asset.json";
+import avatarWithDeco from "@/assets/singleboy-avatar.gif";
 import discordIdle from "@/assets/discord-idle.svg";
 import badgeEarlyDev from "@/assets/badges/early-verified-bot-developer.svg";
 import badgeEarlySupporter from "@/assets/badges/early-supporter.svg";
@@ -34,7 +34,7 @@ const HeroProfile = () => {
         {/* Avatar with Discord decoration */}
         <div className="relative w-28 h-28">
           <img
-            src={avatarWithDeco.url}
+            src={avatarWithDeco}
             alt="Avatar with Decoration"
             className="w-full h-full object-contain"
           />

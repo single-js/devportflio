@@ -2,7 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import musicBanner from "@/assets/music-banner.png";
-import songAsset from "@/assets/end-of-beginning-djo.mp3.asset.json";
+import songAsset from "@/assets/end-of-beginning-djo.mp3";
 
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
@@ -20,7 +20,7 @@ const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio(songAsset.url);
+    const audio = new Audio(songAsset);
     audio.volume = volume;
     audio.preload = "auto";
     audioRef.current = audio;
