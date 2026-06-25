@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Download, Code2, Bot } from "lucide-react";
-import avatarWithDeco from "@/assets/singleboy-avatar-old.gif";
+import avatarWithDeco from "@/assets/singleboy-avatar-old.gif?inline";
 import discordIdle from "@/assets/discord-idle.svg";
 import badgeEarlyDev from "@/assets/badges/early-verified-bot-developer.svg";
 import badgeEarlySupporter from "@/assets/badges/early-supporter.svg";
