@@ -1,4 +1,6 @@
 import avatarImg from "@/assets/footer-avatar.png.asset.json";
+
+const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Journey", href: "#journey" },
   { label: "Skills", href: "#tools" },
