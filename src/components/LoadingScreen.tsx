@@ -71,7 +71,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             initial="hidden"
             animate="visible"
           >
-            {"PRATIYUSH".split("").map((letter, i) => (
+            {"SINGLEBOY".split("").map((letter, i) => (
               <motion.span
                 key={i}
                 className="text-2xl font-bold text-foreground tracking-wider"

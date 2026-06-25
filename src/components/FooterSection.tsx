@@ -21,8 +21,8 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={avatarImg} alt="Pratiyush" className="w-10 h-10 rounded-full" />
-              <span className="text-lg font-bold text-white">Pratiyush</span>
+              <img src={avatarImg} alt="SingleBoy" className="w-10 h-10 rounded-full" />
+              <span className="text-lg font-bold text-white">SingleBoy</span>
             </div>
             <p className="text-sm text-[#8a9bb0] mb-5">
               I design and develop modern, scalable web applications with clean code and seamless user experience.
@@ -86,7 +86,7 @@ const Footer = () => {
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[#8a9bb0]">
-            © 2026 Pratiyush. All rights reserved.
+            © 2026 SingleBoy. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <a href="#" className="text-sm text-[#8a9bb0] hover:text-white transition-colors">Terms of Service</a>
