@@ -76,7 +76,7 @@ const HeroProfile = () => {
 
           {/* Bio */}
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Hi, I'm Pratiyush. A developer focusing on Mc Server and Web Development. I enjoy exploring new technologies!
+            Hi, I'm SingleBoy. A developer focusing on Mc Server and Web Development. I enjoy exploring new technologies!
           </p>
 
           {/* Download CV */}
