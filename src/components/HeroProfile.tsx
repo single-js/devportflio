@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Download, Code2, Bot } from "lucide-react";
-import avatarWithDeco from "@/assets/singleboy-avatar-old.gif";
 import discordIdle from "@/assets/discord-idle.svg";
 import badgeEarlyDev from "@/assets/badges/early-verified-bot-developer.svg";
 import badgeEarlySupporter from "@/assets/badges/early-supporter.svg";
@@ -21,6 +20,8 @@ const badges = [
   { src: badgeBugHunter, label: "Bug Hunter" },
   { src: badgeModerator, label: "Moderator" },
 ];
+
+const avatarWithDeco = "/avatar.gif";
 
 const HeroProfile = () => {
   return (
