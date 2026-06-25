@@ -70,13 +70,13 @@ const HeroProfile = () => {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Bot size={14} className="text-primary" />
-              <span>Minecraft Server Developer</span>
+              <span>Freelancing and Web Development</span>
             </div>
           </div>
 
           {/* Bio */}
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Hi, I'm SingleBoy. A developer focusing on Mc Server and Web Development. I enjoy exploring new technologies!
+            Hi, I'm SingleBoy. A developer focusing on Freelancing and Web Development. I enjoy exploring new technologies!
           </p>
 
           {/* Download CV */}
