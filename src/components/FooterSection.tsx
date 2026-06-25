@@ -1,5 +1,3 @@
-import avatarImg from "@/assets/singleboy-avatar.gif.asset.json";
-
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "Journey", href: "#journey" },
