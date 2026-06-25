@@ -43,7 +43,7 @@ const HeroProfile = () => {
 
         {/* Info */}
         <div className="flex-1">
-          <h1 className="text-3xl font-bold text-foreground">SingleBoy</h1>
+          <h1 className="text-3xl font-bold text-foreground">々 Ꮪɪɴɢʟᴇʙᴏʏ</h1>
           <p className="text-muted-foreground font-mono text-sm">@single.4008</p>
 
           {/* Badges */}
