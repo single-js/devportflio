@@ -1,4 +1,4 @@
-const navLinks = [
+import avatarImg from "@/assets/footer-avatar.png.asset.json";
   { label: "Home", href: "#home" },
   { label: "Journey", href: "#journey" },
   { label: "Skills", href: "#tools" },
