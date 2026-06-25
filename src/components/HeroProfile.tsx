@@ -43,8 +43,8 @@ const HeroProfile = () => {
 
         {/* Info */}
         <div className="flex-1">
-          <h1 className="text-3xl font-bold text-foreground">々 ᎮRATIYUSH</h1>
-          <p className="text-muted-foreground font-mono text-sm">@genwis.pratiyush</p>
+          <h1 className="text-3xl font-bold text-foreground">SingleBoy</h1>
+          <p className="text-muted-foreground font-mono text-sm">@single.4008</p>
 
           {/* Badges */}
           <div className="flex flex-wrap gap-1.5 mt-3 p-2 rounded-xl bg-secondary/50">
@@ -70,13 +70,13 @@ const HeroProfile = () => {
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Bot size={14} className="text-primary" />
-              <span>Minecraft Server Developer</span>
+              <span>Freelancing and Web Development</span>
             </div>
           </div>
 
           {/* Bio */}
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Hi, I'm Pratiyush. A developer focusing on Mc Server and Web Development. I enjoy exploring new technologies!
+            Hi, I'm SingleBoy. A developer focusing on Freelancing and Web Development. I enjoy exploring new technologies!
           </p>
 
           {/* Download CV */}
