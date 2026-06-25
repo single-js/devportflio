@@ -21,6 +21,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
+              <img src={avatarImg.url} alt="SingleBoy" className="w-10 h-10 rounded-full" />
               <span className="text-lg font-bold text-white">SingleBoy</span>
             </div>
             <p className="text-sm text-[#8a9bb0] mb-5">
