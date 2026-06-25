@@ -2,6 +2,7 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import musicBanner from "@/assets/music-banner.png";
+import songAsset from "@/assets/end-of-beginning-djo.mp3.asset.json";
 
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
@@ -19,7 +20,7 @@ const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio("/music/memory-reboot.mp3");
+    const audio = new Audio(songAsset.url);
     audio.volume = volume;
     audio.preload = "auto";
     audioRef.current = audio;
@@ -100,8 +101,8 @@ const MusicPlayer = () => {
       <div className="p-4 pb-2">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-bold text-foreground">Luffy Calling</h3>
-            <p className="text-sm text-muted-foreground">Creating A New Space!!</p>
+            <h3 className="text-lg font-bold text-foreground">End of Beginning</h3>
+            <p className="text-sm text-muted-foreground">Djo</p>
           </div>
           <div className="flex items-end gap-[3px] h-5">
             {[...Array(4)].map((_, i) => (
