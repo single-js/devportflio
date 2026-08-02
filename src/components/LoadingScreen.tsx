@@ -67,7 +67,18 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             ))}
           </div>
 
+          {/* Circular avatar above name */}
+          <motion.img
+            src={avatarLoading.url}
+            alt="Pushp Dev Raj"
+            className="relative z-10 w-20 h-20 rounded-full object-cover border-2 border-primary/30 shadow-glow mb-4"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          />
+
           {/* Name with staggered letter animation */}
+
           <motion.div
             className="relative z-10 mb-1 flex overflow-hidden"
             initial="hidden"
