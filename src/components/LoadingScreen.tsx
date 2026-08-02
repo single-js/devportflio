@@ -92,7 +92,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.5 }}
           >
-            Developer
+            A Unknown Guy
           </motion.p>
 
           {/* Progress bar */}
