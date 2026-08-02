@@ -2,7 +2,9 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import musicBanner from "@/assets/music-banner.png";
-import songAsset from "@/assets/end-of-beginning-djo.mp3";
+import songAssetPointer from "@/assets/espresso.mp3.asset.json";
+
+const songAsset = songAssetPointer.url;
 
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
@@ -36,7 +38,31 @@ const MusicPlayer = () => {
       setCurrentTime(0);
     });
 
+    // Autoplay once on first load; if the browser blocks it, start on first user interaction
+    let cleanupGesture = () => {};
+    const tryPlay = () => {
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {});
+    };
+    audio
+      .play()
+      .then(() => setIsPlaying(true))
+      .catch(() => {
+        const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
+        const onGesture = () => {
+          cleanupGesture();
+          tryPlay();
+        };
+        cleanupGesture = () => {
+          events.forEach((e) => window.removeEventListener(e, onGesture));
+        };
+        events.forEach((e) => window.addEventListener(e, onGesture, { once: true }));
+      });
+
     return () => {
+      cleanupGesture();
       audio.pause();
       audio.src = "";
     };
@@ -101,8 +127,8 @@ const MusicPlayer = () => {
       <div className="p-4 pb-2">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-bold text-foreground">End of Beginning</h3>
-            <p className="text-sm text-muted-foreground">Djo</p>
+            <h3 className="text-lg font-bold text-foreground">Espresso</h3>
+            <p className="text-sm text-muted-foreground">Sabrina Carpenter</p>
           </div>
           <div className="flex items-end gap-[3px] h-5">
             {[...Array(4)].map((_, i) => (
