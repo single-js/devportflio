@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Download, Code2, Bot } from "lucide-react";
 import discordIdle from "@/assets/discord-idle.svg";
-import avatarHome from "@/assets/avatar-home.gif.asset.json";
+const avatarHome = { url: "/avatar-home.gif" };
 import badgeEarlyDev from "@/assets/badges/early-verified-bot-developer.svg";
 import badgeEarlySupporter from "@/assets/badges/early-supporter.svg";
 import badgeNitro from "@/assets/badges/nitro.svg";
