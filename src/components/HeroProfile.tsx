@@ -45,7 +45,7 @@ const HeroProfile = () => {
         {/* Info */}
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-foreground">々 ᴘᴜsʜᴘ ᴅᴇᴠ ʀᴀᴊ</h1>
-          <p className="text-muted-foreground font-mono text-sm">@single.4008</p>
+          <p className="text-muted-foreground font-mono text-sm">@pushp.dev.raj</p>
 
           {/* Badges */}
           <div className="flex flex-wrap gap-1.5 mt-3 p-2 rounded-xl bg-secondary/50">
