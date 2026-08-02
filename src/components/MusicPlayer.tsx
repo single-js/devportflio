@@ -2,7 +2,9 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import musicBanner from "@/assets/music-banner.png";
-import songAsset from "@/assets/end-of-beginning-djo.mp3";
+import songAssetPointer from "@/assets/espresso.mp3.asset.json";
+
+const songAsset = songAssetPointer.url;
 
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
