@@ -71,7 +71,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
             initial="hidden"
             animate="visible"
           >
-            {"SINGLEBOY".split("").map((letter, i) => (
+            {"PUSHP DEV RAJ".split("").map((letter, i) => (
               <motion.span
                 key={i}
                 className="text-2xl font-bold text-foreground tracking-wider"
@@ -81,7 +81,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
                 }}
                 transition={{ duration: 0.4, delay: 0.1 + i * 0.05, ease: [0.22, 1, 0.36, 1] }}
               >
-                {letter}
+                {letter === " " ? "\u00A0" : letter}
               </motion.span>
             ))}
           </motion.div>
