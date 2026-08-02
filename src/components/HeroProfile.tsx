@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Download, Code2, Bot } from "lucide-react";
 import discordIdle from "@/assets/discord-idle.svg";
+import avatarHome from "@/assets/avatar-home.gif.asset.json";
 import badgeEarlyDev from "@/assets/badges/early-verified-bot-developer.svg";
 import badgeEarlySupporter from "@/assets/badges/early-supporter.svg";
 import badgeNitro from "@/assets/badges/nitro.svg";
@@ -21,7 +22,7 @@ const badges = [
   { src: badgeModerator, label: "Moderator" },
 ];
 
-const avatarWithDeco = "/avatar.gif";
+const avatarWithDeco = avatarHome.url;
 
 const HeroProfile = () => {
   return (
@@ -36,7 +37,7 @@ const HeroProfile = () => {
         <div className="relative w-28 h-28">
           <img
             src={avatarWithDeco}
-            alt="Avatar with Decoration"
+            alt="Pushp Dev Raj"
             className="w-full h-full object-contain"
           />
           <img src={discordIdle} alt="Idle" className="absolute bottom-0.5 right-0.5 w-5 h-5 z-20" title="Idle" />
@@ -77,7 +78,7 @@ const HeroProfile = () => {
 
           {/* Bio */}
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-            Hi, I'm SingleBoy. A developer focusing on Freelancing and Web Development. I enjoy exploring new technologies!
+            Hi, I'm Pushp Dev Raj. A developer focusing on Freelancing and Web Development. I enjoy exploring new technologies!
           </p>
 
           {/* Download CV */}
