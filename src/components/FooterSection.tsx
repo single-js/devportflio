@@ -1,4 +1,4 @@
-import avatarHome from "@/assets/avatar-home.gif.asset.json";
+const avatarHome = { url: "/avatar-home.gif" };
 
 const navLinks = [
   { label: "Home", href: "#home" },
