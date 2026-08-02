@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import avatarLoading from "@/assets/avatar-loading.png.asset.json";
+
 
 
 const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
