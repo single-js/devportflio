@@ -127,8 +127,8 @@ const MusicPlayer = () => {
       <div className="p-4 pb-2">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-bold text-foreground">End of Beginning</h3>
-            <p className="text-sm text-muted-foreground">Djo</p>
+            <h3 className="text-lg font-bold text-foreground">Espresso</h3>
+            <p className="text-sm text-muted-foreground">Sabrina Carpenter</p>
           </div>
           <div className="flex items-end gap-[3px] h-5">
             {[...Array(4)].map((_, i) => (
