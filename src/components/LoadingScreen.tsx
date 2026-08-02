@@ -69,7 +69,7 @@ const LoadingScreen = ({ onComplete }: { onComplete: () => void }) => {
 
           {/* Circular avatar above name */}
           <motion.img
-            src={avatarLoading.url}
+            src="/avatar-loading.png"
             alt="Pushp Dev Raj"
             className="relative z-10 w-20 h-20 rounded-full object-cover border-2 border-primary/30 shadow-glow mb-4"
             initial={{ opacity: 0, scale: 0.8 }}
