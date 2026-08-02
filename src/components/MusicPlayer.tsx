@@ -38,7 +38,31 @@ const MusicPlayer = () => {
       setCurrentTime(0);
     });
 
+    // Autoplay once on first load; if the browser blocks it, start on first user interaction
+    let cleanupGesture = () => {};
+    const tryPlay = () => {
+      audio
+        .play()
+        .then(() => setIsPlaying(true))
+        .catch(() => {});
+    };
+    audio
+      .play()
+      .then(() => setIsPlaying(true))
+      .catch(() => {
+        const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
+        const onGesture = () => {
+          cleanupGesture();
+          tryPlay();
+        };
+        cleanupGesture = () => {
+          events.forEach((e) => window.removeEventListener(e, onGesture));
+        };
+        events.forEach((e) => window.addEventListener(e, onGesture, { once: true }));
+      });
+
     return () => {
+      cleanupGesture();
       audio.pause();
       audio.src = "";
     };
