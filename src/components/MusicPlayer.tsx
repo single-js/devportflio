@@ -2,9 +2,9 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
 import musicBanner from "@/assets/music-banner.png";
-import songAssetPointer from "@/assets/espresso.mp3.asset.json";
 
-const songAsset = songAssetPointer.url;
+// Served from /public so it works on any host (Lovable or self-hosted)
+const songAsset = "/music/espresso.mp3";
 
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
