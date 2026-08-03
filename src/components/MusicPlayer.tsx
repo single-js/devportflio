@@ -6,6 +6,21 @@ import musicBanner from "@/assets/music-banner.png";
 // Served from /public so it works on any host (Lovable or self-hosted)
 const songAsset = "/music/espresso.mp3";
 
+// Created at module load (while the loading screen is still showing) so the
+// song is already buffered by the time the player mounts.
+let sharedAudio: HTMLAudioElement | null = null;
+const getAudio = () => {
+  if (typeof window === "undefined") return null;
+  if (!sharedAudio) {
+    sharedAudio = new Audio();
+    sharedAudio.preload = "auto";
+    sharedAudio.src = songAsset;
+    sharedAudio.load();
+  }
+  return sharedAudio;
+};
+if (typeof window !== "undefined") getAudio();
+
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
   const s = Math.floor(sec % 60);
