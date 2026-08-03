@@ -6,6 +6,21 @@ import musicBanner from "@/assets/music-banner.png";
 // Served from /public so it works on any host (Lovable or self-hosted)
 const songAsset = "/music/espresso.mp3";
 
+// Created at module load (while the loading screen is still showing) so the
+// song is already buffered by the time the player mounts.
+let sharedAudio: HTMLAudioElement | null = null;
+const getAudio = () => {
+  if (typeof window === "undefined") return null;
+  if (!sharedAudio) {
+    sharedAudio = new Audio();
+    sharedAudio.preload = "auto";
+    sharedAudio.src = songAsset;
+    sharedAudio.load();
+  }
+  return sharedAudio;
+};
+if (typeof window !== "undefined") getAudio();
+
 const formatTime = (sec: number) => {
   const m = Math.floor(sec / 60);
   const s = Math.floor(sec % 60);
@@ -22,51 +37,57 @@ const MusicPlayer = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    const audio = new Audio(songAsset);
+    const audio = getAudio();
+    if (!audio) return;
     audio.volume = volume;
-    audio.preload = "auto";
     audioRef.current = audio;
 
-    audio.addEventListener("loadedmetadata", () => setDuration(audio.duration));
-    audio.addEventListener("timeupdate", () => {
+    const onMeta = () => setDuration(audio.duration);
+    const onTime = () => {
       setCurrentTime(audio.currentTime);
       setProgress((audio.currentTime / audio.duration) * 100 || 0);
-    });
-    audio.addEventListener("ended", () => {
+    };
+    const onEnded = () => {
       setIsPlaying(false);
       setProgress(0);
       setCurrentTime(0);
-    });
+    };
+    if (audio.duration) setDuration(audio.duration);
+    audio.addEventListener("loadedmetadata", onMeta);
+    audio.addEventListener("timeupdate", onTime);
+    audio.addEventListener("ended", onEnded);
 
-    // Autoplay once on first load; if the browser blocks it, start on first user interaction
-    let cleanupGesture = () => {};
+    // Autoplay once, as early as possible; if blocked, start on first interaction
+    let cleanup = () => {};
     const tryPlay = () => {
       audio
         .play()
         .then(() => setIsPlaying(true))
-        .catch(() => {});
+        .catch(() => {
+          const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
+          const onGesture = () => {
+            events.forEach((e) => window.removeEventListener(e, onGesture));
+            audio.play().then(() => setIsPlaying(true)).catch(() => {});
+          };
+          cleanup = () => events.forEach((e) => window.removeEventListener(e, onGesture));
+          events.forEach((e) => window.addEventListener(e, onGesture, { once: true }));
+        });
     };
-    audio
-      .play()
-      .then(() => setIsPlaying(true))
-      .catch(() => {
-        const events = ["pointerdown", "keydown", "touchstart", "wheel"] as const;
-        const onGesture = () => {
-          cleanupGesture();
-          tryPlay();
-        };
-        cleanupGesture = () => {
-          events.forEach((e) => window.removeEventListener(e, onGesture));
-        };
-        events.forEach((e) => window.addEventListener(e, onGesture, { once: true }));
-      });
+
+    // readyState >= 2 means the first chunk is decodable — no need to wait for the full file
+    if (audio.readyState >= 2) tryPlay();
+    else audio.addEventListener("loadeddata", tryPlay, { once: true });
 
     return () => {
-      cleanupGesture();
+      cleanup();
+      audio.removeEventListener("loadedmetadata", onMeta);
+      audio.removeEventListener("timeupdate", onTime);
+      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener("loadeddata", tryPlay);
       audio.pause();
-      audio.src = "";
     };
   }, []);
+
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
